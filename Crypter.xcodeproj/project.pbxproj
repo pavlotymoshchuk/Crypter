@@ -8,26 +8,96 @@
 
 /* Begin PBXBuildFile section */
 		C7137C4E210222C200F9D57C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7137C4D210222C200F9D57C /* AppDelegate.swift */; };
-		C7137C50210222C200F9D57C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7137C4F210222C200F9D57C /* ViewController.swift */; };
-		C7137C53210222C200F9D57C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7137C51210222C200F9D57C /* Main.storyboard */; };
-		C7137C56210222C200F9D57C /* Crypter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C7137C54210222C200F9D57C /* Crypter.xcdatamodeld */; };
 		C7137C58210222C400F9D57C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7137C57210222C400F9D57C /* Assets.xcassets */; };
-		C7137C5B210222C400F9D57C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7137C59210222C400F9D57C /* LaunchScreen.storyboard */; };
+		C7137C6321022C5300F9D57C /* Encrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7137C6221022C5300F9D57C /* Encrypt.swift */; };
+		C7137C6521022C6600F9D57C /* Decrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7137C6421022C6600F9D57C /* Decrypt.swift */; };
+		C7222FE32342728F009D23E3 /* KeyChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7222FE22342728F009D23E3 /* KeyChange.swift */; };
+		C7291A14222046CA0019CDA1 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7291A13222046CA0019CDA1 /* NotificationCenter.framework */; };
+		C7291A17222046CA0019CDA1 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7291A16222046CA0019CDA1 /* TodayViewController.swift */; };
+		C7291A1A222046CA0019CDA1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7291A18222046CA0019CDA1 /* MainInterface.storyboard */; };
+		C7291A1E222046CA0019CDA1 /* Crypter_vidjet.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C7291A11222046CA0019CDA1 /* Crypter_vidjet.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C7A46CD5231EEABA00EEC538 /* MetodChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A46CD4231EEABA00EEC538 /* MetodChange.swift */; };
+		C7A8BD44210C8A0F0028E4BE /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A8BD43210C8A0F0028E4BE /* ShareViewController.swift */; };
+		C7A8BD47210C8A0F0028E4BE /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A8BD45210C8A0F0028E4BE /* MainInterface.storyboard */; };
+		C7A8BD4B210C8A0F0028E4BE /* shareToCripter.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C7A8BD41210C8A0F0028E4BE /* shareToCripter.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C7ADB3A4231FC54C0048FD3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7ADB3A3231FC54C0048FD3A /* Main.storyboard */; };
+		C7F217592361C8F500BAEC5F /* KeyWordChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F217582361C8F500BAEC5F /* KeyWordChange.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C7291A1C222046CA0019CDA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7137C42210222C200F9D57C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7291A10222046CA0019CDA1;
+			remoteInfo = Crypter_vidjet;
+		};
+		C7A8BD49210C8A0F0028E4BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7137C42210222C200F9D57C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7A8BD40210C8A0F0028E4BE;
+			remoteInfo = shareToCripter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C7A8BD4F210C8A0F0028E4BE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C7291A1E222046CA0019CDA1 /* Crypter_vidjet.appex in Embed App Extensions */,
+				C7A8BD4B210C8A0F0028E4BE /* shareToCripter.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C7137C4A210222C200F9D57C /* Crypter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crypter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7137C4D210222C200F9D57C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C7137C4F210222C200F9D57C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C7137C52210222C200F9D57C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7137C55210222C200F9D57C /* Crypter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Crypter.xcdatamodel; sourceTree = "<group>"; };
 		C7137C57210222C400F9D57C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C7137C5A210222C400F9D57C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7137C5C210222C400F9D57C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7137C6221022C5300F9D57C /* Encrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encrypt.swift; sourceTree = "<group>"; };
+		C7137C6421022C6600F9D57C /* Decrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decrypt.swift; sourceTree = "<group>"; };
+		C7222FE22342728F009D23E3 /* KeyChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChange.swift; sourceTree = "<group>"; };
+		C7291A11222046CA0019CDA1 /* Crypter_vidjet.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Crypter_vidjet.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7291A13222046CA0019CDA1 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		C7291A16222046CA0019CDA1 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		C7291A19222046CA0019CDA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		C7291A1B222046CA0019CDA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7A46CD4231EEABA00EEC538 /* MetodChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetodChange.swift; sourceTree = "<group>"; };
+		C7A8BD3C210C89990028E4BE /* Crypter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Crypter.entitlements; sourceTree = "<group>"; };
+		C7A8BD41210C8A0F0028E4BE /* shareToCripter.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = shareToCripter.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7A8BD43210C8A0F0028E4BE /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		C7A8BD46210C8A0F0028E4BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		C7A8BD48210C8A0F0028E4BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7A8BD50210C8A270028E4BE /* shareToCripter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = shareToCripter.entitlements; sourceTree = "<group>"; };
+		C7ADB3A3231FC54C0048FD3A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C7F217582361C8F500BAEC5F /* KeyWordChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyWordChange.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C7137C47210222C200F9D57C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7291A0E222046CA0019CDA1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7291A14222046CA0019CDA1 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7A8BD3E210C8A0F0028E4BE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,6 +111,9 @@
 			isa = PBXGroup;
 			children = (
 				C7137C4C210222C200F9D57C /* Crypter */,
+				C7A8BD42210C8A0F0028E4BE /* shareToCripter */,
+				C7291A15222046CA0019CDA1 /* Crypter_vidjet */,
+				C7291A12222046CA0019CDA1 /* Frameworks */,
 				C7137C4B210222C200F9D57C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				C7137C4A210222C200F9D57C /* Crypter.app */,
+				C7A8BD41210C8A0F0028E4BE /* shareToCripter.appex */,
+				C7291A11222046CA0019CDA1 /* Crypter_vidjet.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,15 +131,48 @@
 		C7137C4C210222C200F9D57C /* Crypter */ = {
 			isa = PBXGroup;
 			children = (
-				C7137C4D210222C200F9D57C /* AppDelegate.swift */,
-				C7137C4F210222C200F9D57C /* ViewController.swift */,
-				C7137C51210222C200F9D57C /* Main.storyboard */,
+				C7A8BD3C210C89990028E4BE /* Crypter.entitlements */,
 				C7137C57210222C400F9D57C /* Assets.xcassets */,
-				C7137C59210222C400F9D57C /* LaunchScreen.storyboard */,
+				C7137C4D210222C200F9D57C /* AppDelegate.swift */,
+				C7137C6221022C5300F9D57C /* Encrypt.swift */,
+				C7137C6421022C6600F9D57C /* Decrypt.swift */,
+				C7A46CD4231EEABA00EEC538 /* MetodChange.swift */,
+				C7F217582361C8F500BAEC5F /* KeyWordChange.swift */,
+				C7222FE22342728F009D23E3 /* KeyChange.swift */,
+				C7ADB3A3231FC54C0048FD3A /* Main.storyboard */,
 				C7137C5C210222C400F9D57C /* Info.plist */,
 				C7137C54210222C200F9D57C /* Crypter.xcdatamodeld */,
 			);
 			path = Crypter;
+			sourceTree = "<group>";
+		};
+		C7291A12222046CA0019CDA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7291A13222046CA0019CDA1 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7291A15222046CA0019CDA1 /* Crypter_vidjet */ = {
+			isa = PBXGroup;
+			children = (
+				C7291A16222046CA0019CDA1 /* TodayViewController.swift */,
+				C7291A18222046CA0019CDA1 /* MainInterface.storyboard */,
+				C7291A1B222046CA0019CDA1 /* Info.plist */,
+			);
+			path = Crypter_vidjet;
+			sourceTree = "<group>";
+		};
+		C7A8BD42210C8A0F0028E4BE /* shareToCripter */ = {
+			isa = PBXGroup;
+			children = (
+				C7A8BD50210C8A270028E4BE /* shareToCripter.entitlements */,
+				C7A8BD43210C8A0F0028E4BE /* ShareViewController.swift */,
+				C7A8BD45210C8A0F0028E4BE /* MainInterface.storyboard */,
+				C7A8BD48210C8A0F0028E4BE /* Info.plist */,
+			);
+			path = shareToCripter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,15 +185,52 @@
 				C7137C46210222C200F9D57C /* Sources */,
 				C7137C47210222C200F9D57C /* Frameworks */,
 				C7137C48210222C200F9D57C /* Resources */,
+				C7A8BD4F210C8A0F0028E4BE /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C7A8BD4A210C8A0F0028E4BE /* PBXTargetDependency */,
+				C7291A1D222046CA0019CDA1 /* PBXTargetDependency */,
 			);
 			name = Crypter;
 			productName = Crypter;
 			productReference = C7137C4A210222C200F9D57C /* Crypter.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C7291A10222046CA0019CDA1 /* Crypter_vidjet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7291A21222046CA0019CDA1 /* Build configuration list for PBXNativeTarget "Crypter_vidjet" */;
+			buildPhases = (
+				C7291A0D222046CA0019CDA1 /* Sources */,
+				C7291A0E222046CA0019CDA1 /* Frameworks */,
+				C7291A0F222046CA0019CDA1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Crypter_vidjet;
+			productName = Crypter_vidjet;
+			productReference = C7291A11222046CA0019CDA1 /* Crypter_vidjet.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		C7A8BD40210C8A0F0028E4BE /* shareToCripter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7A8BD4C210C8A0F0028E4BE /* Build configuration list for PBXNativeTarget "shareToCripter" */;
+			buildPhases = (
+				C7A8BD3D210C8A0F0028E4BE /* Sources */,
+				C7A8BD3E210C8A0F0028E4BE /* Frameworks */,
+				C7A8BD3F210C8A0F0028E4BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = shareToCripter;
+			productName = shareToCripter;
+			productReference = C7A8BD41210C8A0F0028E4BE /* shareToCripter.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -93,12 +238,31 @@
 		C7137C42210222C200F9D57C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Павло Тимощук";
 				TargetAttributes = {
 					C7137C49210222C200F9D57C = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					C7291A10222046CA0019CDA1 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					C7A8BD40210C8A0F0028E4BE = {
+						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -116,6 +280,8 @@
 			projectRoot = "";
 			targets = (
 				C7137C49210222C200F9D57C /* Crypter */,
+				C7A8BD40210C8A0F0028E4BE /* shareToCripter */,
+				C7291A10222046CA0019CDA1 /* Crypter_vidjet */,
 			);
 		};
 /* End PBXProject section */
@@ -125,9 +291,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7137C5B210222C400F9D57C /* LaunchScreen.storyboard in Resources */,
 				C7137C58210222C400F9D57C /* Assets.xcassets in Resources */,
-				C7137C53210222C200F9D57C /* Main.storyboard in Resources */,
+				C7ADB3A4231FC54C0048FD3A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7291A0F222046CA0019CDA1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7291A1A222046CA0019CDA1 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7A8BD3F210C8A0F0028E4BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7A8BD47210C8A0F0028E4BE /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,29 +319,61 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7137C56210222C200F9D57C /* Crypter.xcdatamodeld in Sources */,
-				C7137C50210222C200F9D57C /* ViewController.swift in Sources */,
+				C7137C6521022C6600F9D57C /* Decrypt.swift in Sources */,
+				C7F217592361C8F500BAEC5F /* KeyWordChange.swift in Sources */,
+				C7137C6321022C5300F9D57C /* Encrypt.swift in Sources */,
+				C7A46CD5231EEABA00EEC538 /* MetodChange.swift in Sources */,
+				C7222FE32342728F009D23E3 /* KeyChange.swift in Sources */,
 				C7137C4E210222C200F9D57C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7291A0D222046CA0019CDA1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7291A17222046CA0019CDA1 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7A8BD3D210C8A0F0028E4BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7A8BD44210C8A0F0028E4BE /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C7291A1D222046CA0019CDA1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7291A10222046CA0019CDA1 /* Crypter_vidjet */;
+			targetProxy = C7291A1C222046CA0019CDA1 /* PBXContainerItemProxy */;
+		};
+		C7A8BD4A210C8A0F0028E4BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7A8BD40210C8A0F0028E4BE /* shareToCripter */;
+			targetProxy = C7A8BD49210C8A0F0028E4BE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		C7137C51210222C200F9D57C /* Main.storyboard */ = {
+		C7291A18222046CA0019CDA1 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C7137C52210222C200F9D57C /* Base */,
+				C7291A19222046CA0019CDA1 /* Base */,
 			);
-			name = Main.storyboard;
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
-		C7137C59210222C400F9D57C /* LaunchScreen.storyboard */ = {
+		C7A8BD45210C8A0F0028E4BE /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C7137C5A210222C400F9D57C /* Base */,
+				C7A8BD46210C8A0F0028E4BE /* Base */,
 			);
-			name = LaunchScreen.storyboard;
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -283,10 +496,13 @@
 		C7137C60210222C500F9D57C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Crypter/Crypter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TKCHBW3N32;
 				INFOPLIST_FILE = Crypter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,16 +517,103 @@
 		C7137C61210222C500F9D57C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Crypter/Crypter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TKCHBW3N32;
 				INFOPLIST_FILE = Crypter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "tymoshchuk-Inc.Crypter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C7291A1F222046CA0019CDA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TKCHBW3N32;
+				INFOPLIST_FILE = Crypter_vidjet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "tymoshchuk-Inc.Crypter.Crypter-vidjet";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C7291A20222046CA0019CDA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TKCHBW3N32;
+				INFOPLIST_FILE = Crypter_vidjet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "tymoshchuk-Inc.Crypter.Crypter-vidjet";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C7A8BD4D210C8A0F0028E4BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = shareToCripter/shareToCripter.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TKCHBW3N32;
+				INFOPLIST_FILE = shareToCripter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "tymoshchuk-Inc.Crypter.shareToCripter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C7A8BD4E210C8A0F0028E4BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = shareToCripter/shareToCripter.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TKCHBW3N32;
+				INFOPLIST_FILE = shareToCripter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "tymoshchuk-Inc.Crypter.shareToCripter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -333,6 +636,24 @@
 			buildConfigurations = (
 				C7137C60210222C500F9D57C /* Debug */,
 				C7137C61210222C500F9D57C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7291A21222046CA0019CDA1 /* Build configuration list for PBXNativeTarget "Crypter_vidjet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7291A1F222046CA0019CDA1 /* Debug */,
+				C7291A20222046CA0019CDA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7A8BD4C210C8A0F0028E4BE /* Build configuration list for PBXNativeTarget "shareToCripter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7A8BD4D210C8A0F0028E4BE /* Debug */,
+				C7A8BD4E210C8A0F0028E4BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
