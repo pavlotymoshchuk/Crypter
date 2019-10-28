@@ -244,6 +244,7 @@
 				TargetAttributes = {
 					C7137C49210222C200F9D57C = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1110;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -255,9 +256,11 @@
 					};
 					C7291A10222046CA0019CDA1 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1110;
 					};
 					C7A8BD40210C8A0F0028E4BE = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1110;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -509,7 +512,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "tymoshchuk-Inc.Crypter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -530,7 +533,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "tymoshchuk-Inc.Crypter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -551,7 +554,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "tymoshchuk-Inc.Crypter.Crypter-vidjet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -572,7 +575,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "tymoshchuk-Inc.Crypter.Crypter-vidjet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -593,7 +596,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "tymoshchuk-Inc.Crypter.shareToCripter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -614,7 +617,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "tymoshchuk-Inc.Crypter.shareToCripter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

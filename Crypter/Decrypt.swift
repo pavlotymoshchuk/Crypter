@@ -59,14 +59,6 @@ class Decrypt: UIViewController, UITextFieldDelegate
         let decryptIcon = UIApplicationShortcutIcon(templateImageName: "lock")
         let decryptItem = UIApplicationShortcutItem(type: "decrypt", localizedTitle: "Decrypt", localizedSubtitle: "", icon: decryptIcon, userInfo: nil)
         
-        var key = UserDefaults.standard
-        key.set(myKey, forKey: "Key")
-        key.synchronize()
-        if key.value(forKey: "Key") != nil
-        {
-            myKey = key.value(forKey: "Key") as! NSInteger
-        }
-        
         UIApplication.shared.shortcutItems = [decryptItem]
         
     }
@@ -111,12 +103,12 @@ class Decrypt: UIViewController, UITextFieldDelegate
             if String(UnicodeScalar(symbol)!) < "\u{0410}" && String(UnicodeScalar(character)!) >= "\u{0410}"
             {
                 let vrongSymb = symbol
-                symbol = UInt16(UnicodeScalar("Я")!.value) - UInt16( UnicodeScalar("А")!.value - UnicodeScalar(vrongSymb)!.value) + 1
+                symbol = UInt16(UnicodeScalar("Я").value) - UInt16( UnicodeScalar("А").value - UnicodeScalar(vrongSymb)!.value) + 1
             }
             if String(UnicodeScalar(symbol)!) < "\u{0430}" && String(UnicodeScalar(character)!) >= "\u{0430}"
             {
                 let vrongSymb = symbol
-                symbol = UInt16(UnicodeScalar("я")!.value) - UInt16( UnicodeScalar("а")!.value - UnicodeScalar(vrongSymb)!.value) + 1
+                symbol = UInt16(UnicodeScalar("я").value) - UInt16( UnicodeScalar("а").value - UnicodeScalar(vrongSymb)!.value) + 1
             }
             newSymbol = String(UnicodeScalar(symbol)!)
             newText += newSymbol
@@ -209,18 +201,18 @@ class Decrypt: UIViewController, UITextFieldDelegate
         let newAlphabet: [String] = getting_ABC(text)
         for i in 0 ..< newAlphabet.count
         {
-            print("\(Letters[i]) = \(Int(newAlphabet.index(of: Letters[i])!))")
+            print("\(Letters[i]) = \(Int(newAlphabet.firstIndex(of: Letters[i])!))")
         }
         for k in 0 ..< text.count
         {
-            let delta = Int(newAlphabet.index(of: text[k])!)-Int(newAlphabet.index(of: keyPhrase[k])!)
+            let delta = Int(newAlphabet.firstIndex(of: text[k])!)-Int(newAlphabet.firstIndex(of: keyPhrase[k])!)
             if delta < 0
             {
                 newText += newAlphabet[newAlphabet.count+delta]
             }
             else
             {
-            newText += newAlphabet[(Int(newAlphabet.index(of: text[k])!)-Int(newAlphabet.index(of: keyPhrase[k])!))]
+                newText += newAlphabet[(Int(newAlphabet.firstIndex(of: text[k])!)-Int(newAlphabet.firstIndex(of: keyPhrase[k])!))]
             }
         }
     }
@@ -312,11 +304,12 @@ class Decrypt: UIViewController, UITextFieldDelegate
     
     @IBAction func share2Button(_ sender: UIButton)
     {
-        let activityController = UIActivityViewController(activityItems: [decryptText.text], applicationActivities: nil)
+        let activityController = UIActivityViewController(activityItems: [decryptText.text!],applicationActivities: nil)
         present(activityController, animated: true, completion: nil)
     }
     
 }
+
 
 
 

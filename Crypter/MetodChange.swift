@@ -43,11 +43,11 @@ func createSHUFR()
         print("ERROR")
     }
     
-    var ind=0, ind1=0
+    var ind1=0
     var arr = [Int]()
     
     
-    for i in 0..<Letters.count
+    for _ in 0..<Letters.count
     {
         if ind1 < readFrequency.count
         {
@@ -98,7 +98,7 @@ func createSHUFR()
     for i in 0..<Letters.count
     {
         var shufr_letter = ""
-        for j in 0..<arr[i]
+        for _ in 0 ..< arr[i]
         {
             shufr_letter += String(array[h])
             h+=1
@@ -154,9 +154,6 @@ class MetodChange: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         self.present(vc, animated: true, completion: nil)
     }
     
-
-    
-    
     @IBAction func saveButton(_ sender: UIButton)
     {
         if currentMetod == 0
@@ -185,9 +182,3 @@ class MetodChange: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         }
     }
 }
-
-
-
-
-
-

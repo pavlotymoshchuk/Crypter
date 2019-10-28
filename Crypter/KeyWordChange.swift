@@ -62,7 +62,7 @@ class KeyWordChange: UIViewController, UITextFieldDelegate
     @IBAction func cancelButton(_ sender: UIButton)
     {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "TabBar") as! UIViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "TabBar") 
         self.present(vc, animated: true, completion: nil)
     }
     
@@ -72,7 +72,7 @@ class KeyWordChange: UIViewController, UITextFieldDelegate
         {
             myKeyWord = newKeyWord.text!
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "TabBar") as! UIViewController
+            let vc = storyboard.instantiateViewController(withIdentifier: "TabBar") 
             self.present(vc, animated: true, completion: nil)
         }
         else
