@@ -12,7 +12,7 @@ import Foundation
 
 var myKey = 27
 var myKeyWord = "ну лп"
-var arrayOfMetods = ["Шифр Цезаря","Гомофонний шифр","Шифр модульного гамування"]
+var arrayOfMetods = ["Шифр Цезаря", "Гомофонний шифр", "Шифр модульного гамування", "Шифр Плейфера"]
 var currentMetod = 2
 var Letters =
     ["\u{0020}","а","б","в","г","ґ","д","е","є","ж","з","и","і","ї","й","к","л","м","н","о","п","р", "с","т","у","ф","х","ц","ч","ш","щ","ь", "ю","я"]
@@ -46,8 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {}
 
     func applicationWillTerminate(_ application: UIApplication) {}
-
-
 
 }
 

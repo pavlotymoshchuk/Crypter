@@ -183,21 +183,20 @@ class Decrypt: UIViewController, UITextFieldDelegate
     
     func Module_gamming_decode (_ text: inout String, _ newText: inout String)
     {
-    //      MARK: TO DO
         var keyPhrase = ""
-               var i = 0
-               for _ in 0 ..< text.count
-               {
-                   keyPhrase += myKeyWord[i]
-                   if i == myKeyWord.count-1
-                   {
-                       i = 0
-                   }
-                   else
-                   {
-                       i += 1
-                   }
-               }
+        var i = 0
+        for _ in 0 ..< text.count
+        {
+            keyPhrase += myKeyWord[i]
+            if i == myKeyWord.count-1
+            {
+                i = 0
+            }
+            else
+            {
+                i += 1
+            }
+        }
         let newAlphabet: [String] = getting_ABC(text)
         for i in 0 ..< newAlphabet.count
         {
@@ -215,6 +214,13 @@ class Decrypt: UIViewController, UITextFieldDelegate
                 newText += newAlphabet[(Int(newAlphabet.firstIndex(of: text[k])!)-Int(newAlphabet.firstIndex(of: keyPhrase[k])!))]
             }
         }
+    }
+    
+    // MARK:    Шифр  Плейфера
+    
+    func Playfair_decode (_ text: inout String, _ newText: inout String)
+    {
+        // MARK: TO DO
     }
     
     // MARK: Розшифрування з файлу
@@ -255,6 +261,10 @@ class Decrypt: UIViewController, UITextFieldDelegate
         {
             Module_gamming_decode(&readString, &newText)
         }
+        if currentMetod==3
+        {
+            Playfair_decode(&readString, &newText)
+        }
         
         
         print("Розшифрований текст: \(decryptText.text!)")
@@ -291,6 +301,10 @@ class Decrypt: UIViewController, UITextFieldDelegate
         {
             Module_gamming_decode(&text, &newText)
         }
+        if currentMetod==3
+        {
+            Playfair_decode(&text, &newText)
+        }
         
         decryptText.text = "Розшифрований текст: \(newText)"
     }
@@ -309,8 +323,3 @@ class Decrypt: UIViewController, UITextFieldDelegate
     }
     
 }
-
-
-
-
-

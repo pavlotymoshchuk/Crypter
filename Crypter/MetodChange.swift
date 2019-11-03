@@ -115,6 +115,33 @@ func createSHUFR()
     }
 }
 
+func Table_KEY()
+{
+    // MARK: TO DO
+    Letters.shuffle()
+    
+    let fileName = "Table_KEY"
+    let docDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+    let fileURL = docDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
+    let fileUpdater = try? FileHandle(forUpdating: fileURL)
+    var j = 0
+    for i in 0 ..< Letters.count
+    {
+        if (fileUpdater != nil)
+        {
+            fileUpdater?.seekToEndOfFile()
+            fileUpdater?.write(Letters[i].data(using: .utf8)!)
+        }
+        j+=1
+        if j == 7
+        {
+            fileUpdater?.seekToEndOfFile()
+            fileUpdater?.write("\u{000D}".data(using: .utf8)!)
+            j = 0
+        }
+    }
+}
+
 class MetodChange: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
 {
     override func viewDidLoad()
@@ -178,6 +205,14 @@ class MetodChange: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "KeyWordChange")
+            self.present(vc, animated: true, completion: nil)
+        }
+        if currentMetod == 3
+        {
+            //MARK: Запис таблиці ключа
+//            Table_KEY()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "TabBar")
             self.present(vc, animated: true, completion: nil)
         }
     }

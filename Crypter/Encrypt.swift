@@ -52,7 +52,7 @@ class Encrypt: UIViewController, UITextFieldDelegate
         return true
     }
     
-    func getting_ABC(_ text: String) -> [String] {
+    func getting_ABC() -> [String] {
        
         let fileName = "Mixed_letters"
         let docDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -72,6 +72,37 @@ class Encrypt: UIViewController, UITextFieldDelegate
             newAlphabet.append(readMixedABC[i])
         }
         return newAlphabet
+    }
+    
+    
+    func getting_Table_KEY() -> [[String]] {
+       
+        let fileName = "Table_KEY"
+        let docDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        let fileURL = docDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
+        var readTable_KEY = ""
+        var Table_KEY = [[String]]()
+        do
+        {
+            readTable_KEY = try String(contentsOf: fileURL)
+        }
+        catch
+        {
+            print("ERROR")
+        }
+        
+        var i = 0
+        for _ in 0 ..< 5
+        {
+            for _ in 0 ..< 7
+            {
+                var sub_array = [String]()
+                sub_array.append(readTable_KEY[i])
+                Table_KEY.append(sub_array)
+                i+=1
+            }
+        }
+        return Table_KEY
     }
     
     func Get_shuft() {
@@ -229,20 +260,22 @@ class Encrypt: UIViewController, UITextFieldDelegate
     func Module_gamming_code (_ text: inout String, _ newText: inout String)
     {
         var keyPhrase = ""
-               var i = 0
-               for _ in 0 ..< text.count
-               {
-                   keyPhrase += myKeyWord[i]
-                   if i == myKeyWord.count-1
-                   {
-                       i = 0
-                   }
-                   else
-                   {
-                       i += 1
-                   }
-               }
-        let newAlphabet: [String] = getting_ABC(text)
+        var i = 0
+        for _ in 0 ..< text.count
+        {
+            keyPhrase += myKeyWord[i]
+            if i == myKeyWord.count-1
+            {
+                i = 0
+            }
+            else
+            {
+                i += 1
+            }
+        }
+        print(text)
+        print(keyPhrase)
+        let newAlphabet: [String] = getting_ABC()
         for i in 0 ..< newAlphabet.count
         {
             print("\(Letters[i]) = \(Int(newAlphabet.firstIndex(of: Letters[i])!))")
@@ -258,6 +291,15 @@ class Encrypt: UIViewController, UITextFieldDelegate
                 newText += newAlphabet[(Int(newAlphabet.firstIndex(of: text[k])!)+Int(newAlphabet.firstIndex(of: keyPhrase[k])!))]
             }
         }
+    }
+    
+    // MARK:    Шифр Плейфера
+
+    
+    func Playfair_code (_ text: inout String, _ newText: inout String)
+    {
+        // MARK: TO DO
+        getting_Table_KEY()
     }
 
     
@@ -316,6 +358,10 @@ class Encrypt: UIViewController, UITextFieldDelegate
         if currentMetod == 2
         {
             Module_gamming_code(&readString, &newText)
+        }
+        if currentMetod == 3
+        {
+            Playfair_code(&readString, &newText)
         }
         
         print("Зашифрований текст: \(newText)")
