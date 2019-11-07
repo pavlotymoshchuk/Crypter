@@ -9,14 +9,13 @@ import Foundation
 import AVFoundation
 import AudioToolbox
 
-func MixLetters() {
+func MixLetters()
+{
     var leters = Letters
     leters.shuffle()
-    
     let fileName = "Mixed_letters"
     let docDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
     let fileURL = docDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
-    
     for i in 0 ..< leters.count
     {
         if let fileUpdater = try? FileHandle(forUpdating: fileURL)
@@ -27,7 +26,6 @@ func MixLetters() {
         }
     }
 }
-
 
 func createSHUFR()
 {
@@ -46,8 +44,7 @@ func createSHUFR()
     
     var ind1=0
     var arr = [Int]()
-    
-    
+
     for _ in 0..<Letters.count
     {
         if ind1 < readFrequency.count
@@ -118,7 +115,6 @@ func createSHUFR()
 
 func Table_KEY()
 {
-    // MARK: TO DO
     var leters = Letters
     leters.shuffle()
     
@@ -177,7 +173,6 @@ class MetodChange: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         currentMetod = row
     }
     
-    
     @IBAction func cancelButton(_ sender: UIButton)
     {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -197,7 +192,6 @@ class MetodChange: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         {
             //MARK: Створення шифру
 //            createSHUFR()
-            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "TabBar")
             self.present(vc, animated: true, completion: nil)
@@ -206,7 +200,6 @@ class MetodChange: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         {
             //MARK: Запис рандомно розташованих літер
 //            MixLetters()
-            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "KeyWordChange")
             self.present(vc, animated: true, completion: nil)

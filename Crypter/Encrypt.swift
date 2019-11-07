@@ -12,32 +12,32 @@ import AudioToolbox
 import LocalAuthentication
 import PassKit
 		
-extension String {
-    
-    var length: Int {
+extension String
+{
+    var length: Int
+    {
         return count
     }
-    
-    subscript (i: Int) -> String {
+    subscript (i: Int) -> String
+    {
         return self[i ..< i + 1]
     }
-    
-    func substring(fromIndex: Int) -> String {
+    func substring(fromIndex: Int) -> String
+    {
         return self[min(fromIndex, length) ..< length]
     }
-    
-    func substring(toIndex: Int) -> String {
+    func substring(toIndex: Int) -> String
+    {
         return self[0 ..< max(0, toIndex)]
     }
-    
-    subscript (r: Range<Int>) -> String {
+    subscript (r: Range<Int>) -> String
+    {
         let range = Range(uncheckedBounds: (lower: max(0, min(length, r.lowerBound)),
                                             upper: min(length, max(0, r.upperBound))))
         let start = index(startIndex, offsetBy: range.lowerBound)
         let end = index(start, offsetBy: range.upperBound - range.lowerBound)
         return String(self[start ..< end])
     }
-    
 }
 
 class Encrypt: UIViewController, UITextFieldDelegate
@@ -53,7 +53,6 @@ class Encrypt: UIViewController, UITextFieldDelegate
     }
     
     func getting_ABC() -> [String] {
-       
         let fileName = "Mixed_letters"
         let docDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         let fileURL = docDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
@@ -129,7 +128,6 @@ class Encrypt: UIViewController, UITextFieldDelegate
         var arr = [Int]()
         var array = [[String]]()
         
-        
         for i in 0..<Letters.count
         {
             if ind1 < readFrequency.count
@@ -163,7 +161,6 @@ class Encrypt: UIViewController, UITextFieldDelegate
             }
             let get_shufr = homophonic_struct(letter: Character(Letters[i]), frequency: arr[i], code: array[i],freq_let: 0)
                 homophonic_el.append(get_shufr)
-        
         }
     }
     
@@ -216,10 +213,10 @@ class Encrypt: UIViewController, UITextFieldDelegate
     
     // MARK:    Шифрування Цезаря
     
-    func Caesars_code(_ text: inout String, _ newText: inout String) {
+    func Caesars_code(_ text: inout String, _ newText: inout String)
+    {
         var symbol: UInt16
         var newSymbol: String
-        
         for character in text.utf16
         {
             symbol = character + UInt16(myKey)
@@ -233,7 +230,6 @@ class Encrypt: UIViewController, UITextFieldDelegate
                 let vrongSymb = symbol
                 symbol = UInt16(UnicodeScalar("а").value + UnicodeScalar(vrongSymb)!.value - UnicodeScalar("я").value - 1)
             }
-            
             newSymbol = String(UnicodeScalar(symbol)!)
             newText += newSymbol
         }
@@ -296,10 +292,8 @@ class Encrypt: UIViewController, UITextFieldDelegate
     
     // MARK:    Шифр Плейфера
 
-    
     func Playfair_code (_ text: inout String, _ newText: inout String)
     {
-        // MARK: TO DO
         let Table_KEY = getting_Table_KEY()
         var i = 0
         repeat
@@ -411,7 +405,6 @@ class Encrypt: UIViewController, UITextFieldDelegate
         }
         while i < text.count
     }
-
     
     // MARK: Шифрування з файлу
     
@@ -437,9 +430,7 @@ class Encrypt: UIViewController, UITextFieldDelegate
         }
         
         var newText = ""
-        
-        // MARK: Шифрування з вибором
-        
+                
         if currentMetod == 0
         {
             Caesars_code(&readString, &newText)
@@ -494,9 +485,7 @@ class Encrypt: UIViewController, UITextFieldDelegate
         var text = dataToEncrypt.text!
         baseText.text =  "Текст, який потрібно зашифрувати: \(text)"
         var newText = ""
-        
-        // MARK: Шифрування з вибором
-        
+                
         if currentMetod==0
         {
             Caesars_code(&text, &newText)
@@ -542,4 +531,3 @@ class Encrypt: UIViewController, UITextFieldDelegate
     }
     
 }
-

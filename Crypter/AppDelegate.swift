@@ -9,7 +9,6 @@
 import UIKit
 import Foundation
 
-
 var myKey = 27
 var myKeyWord = "ну лп"
 var arrayOfMetods = ["Шифр Цезаря", "Гомофонний шифр", "Шифр модульного гамування", "Шифр Плейфера"]
@@ -28,24 +27,15 @@ struct homophonic_struct
 
 var homophonic_el: [homophonic_struct] = []
 
-
-
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+class AppDelegate: UIResponder, UIApplicationDelegate
+{
     var window: UIWindow?
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {return true}
-    
     func applicationWillResignActive(_ application: UIApplication) {}
-
     func applicationDidEnterBackground(_ application: UIApplication) {}
-
     func applicationWillEnterForeground(_ application: UIApplication) {}
-
     func applicationDidBecomeActive(_ application: UIApplication) {}
-
     func applicationWillTerminate(_ application: UIApplication) {}
 
 }
-

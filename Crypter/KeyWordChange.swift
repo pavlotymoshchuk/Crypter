@@ -13,7 +13,6 @@ import AudioToolbox
 
 class KeyWordChange: UIViewController, UITextFieldDelegate
 {
-    
     func check (newKeyWord: UITextField) -> Bool
     {
         let text = newKeyWord.text!
@@ -87,7 +86,6 @@ class KeyWordChange: UIViewController, UITextFieldDelegate
             self.present(alert, animated: true, completion: nil)
         }
     }
-    
     
 }
 

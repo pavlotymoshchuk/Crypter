@@ -128,7 +128,6 @@ class Decrypt: UIViewController, UITextFieldDelegate
     fileprivate func Caesars_decode(_ readString: inout String, _ newText: inout String) {
         var symbol: UInt16
         var newSymbol: String
-        
         for character in readString.utf16
         {
             symbol = character - UInt16(myKey)
@@ -151,7 +150,6 @@ class Decrypt: UIViewController, UITextFieldDelegate
     
     func Homophonic_decode(_ text: inout String, _ newText: inout String)
     {
-        
         if text.count%3 != 0
         {
             newText = "Це що-небуть, тільки не зашифрований текст ❌"
@@ -181,7 +179,7 @@ class Decrypt: UIViewController, UITextFieldDelegate
                     }
                     array.append(newSTR)
                 }
-                    while ind < text.count
+                while ind < text.count
                 
                 num=0
                 for k in array
@@ -209,7 +207,6 @@ class Decrypt: UIViewController, UITextFieldDelegate
             }
         }
     }
-    
     
     // MARK:    Шифр модульного гамування
     
@@ -252,7 +249,6 @@ class Decrypt: UIViewController, UITextFieldDelegate
     
     func Playfair_decode (_ text: inout String, _ newText: inout String)
     {
-        // MARK: TO DO
         let Table_KEY = getting_Table_KEY()
         var i = 0
         repeat
@@ -388,9 +384,7 @@ class Decrypt: UIViewController, UITextFieldDelegate
         }
         
         var newText = ""
-        
-        // MARK: Шифрування з вибором
-        
+                
         if currentMetod==0
         {
             Caesars_decode(&readString, &newText)
@@ -407,7 +401,6 @@ class Decrypt: UIViewController, UITextFieldDelegate
         {
             Playfair_decode(&readString, &newText)
         }
-        
         
         print("Розшифрований текст: \(decryptText.text!)")
         decryptText.text = "Розшифрований текст: \(newText)"
@@ -428,9 +421,7 @@ class Decrypt: UIViewController, UITextFieldDelegate
         var text = dataToDecrypt.text!
         baseText.text =  "Текст, який потрібно розшифрувати: \(text)"
         var newText = ""
-        
-        // MARK: Шифрування з вибором
-        
+                
         if currentMetod==0
         {
             Caesars_decode(&text, &newText)
@@ -465,4 +456,3 @@ class Decrypt: UIViewController, UITextFieldDelegate
     }
     
 }
-
