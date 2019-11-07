@@ -75,8 +75,8 @@ class Encrypt: UIViewController, UITextFieldDelegate
     }
     
     
-    func getting_Table_KEY() -> [[String]] {
-       
+    func getting_Table_KEY() -> [[String]]
+    {
         let fileName = "Table_KEY"
         let docDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         let fileURL = docDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
@@ -322,7 +322,7 @@ class Encrypt: UIViewController, UITextFieldDelegate
                     }
                 }
             }
-            if pos_a[0] == pos_b[0] && pos_a[1] == pos_b[1] // Однакові літери +
+            if pos_a[0] == pos_b[0] && pos_a[1] == pos_b[1] // Однакові літери
             {
                 if pos_a[1] == Table_KEY[0].count-1 // Якщо літери останні в рядку
                 {
@@ -371,20 +371,20 @@ class Encrypt: UIViewController, UITextFieldDelegate
                     newText += Table_KEY[pos_b[0]+1][pos_b[1]]
                 }
             }
-            if pos_a[0] != pos_b[0] && pos_a[1] != pos_b[1] // Літери утворюють прямокутник +
+            if pos_a[0] != pos_b[0] && pos_a[1] != pos_b[1] // Літери утворюють прямокутник
             {
                 newText += Table_KEY[pos_a[0]][pos_b[1]]
                 newText += Table_KEY[pos_b[0]][pos_a[1]]
             }
             
-            if text.count%2 == 0
+            if text.count%2 == 0 // Якщо текст має парну к-сть символів
             {
                 i+=2
             }
             else
             {
                 i+=2
-                if i == text.count+1
+                if i == text.count-1 // Відловлення залишкової останньої літери
                 {
                     for j in 0 ..< Table_KEY.count
                     {
@@ -394,7 +394,7 @@ class Encrypt: UIViewController, UITextFieldDelegate
                             {
                                 pos_a[0] = j
                                 pos_a[1] = k
-                                if pos_a[1] == Table_KEY[0].count-1
+                                if pos_a[1] == Table_KEY[0].count-1 // Якщо літера остання в рядку
                                 {
                                     newText += Table_KEY[pos_a[0]][0]
                                 }
@@ -405,7 +405,7 @@ class Encrypt: UIViewController, UITextFieldDelegate
                             }
                         }
                     }
-                    
+                    i+=1
                 }
             }
         }

@@ -24,7 +24,8 @@ class Decrypt: UIViewController, UITextFieldDelegate
         return true
     }
     
-    func getting_ABC(_ text: String) -> [String] {
+    func getting_ABC() -> [String]
+    {
        
         let fileName = "Mixed_letters"
         let docDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -46,8 +47,8 @@ class Decrypt: UIViewController, UITextFieldDelegate
         return newAlphabet
     }
     
-    func getting_Table_KEY() -> [[String]] {
-       
+    func getting_Table_KEY() -> [[String]]
+    {
         let fileName = "Table_KEY"
         let docDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         let fileURL = docDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
@@ -65,13 +66,13 @@ class Decrypt: UIViewController, UITextFieldDelegate
         var i = 0
         for _ in 0 ..< 5
         {
+            var sub_array = [String]()
             for _ in 0 ..< 7
             {
-                var sub_array = [String]()
                 sub_array.append(readTable_KEY[i])
-                Table_KEY.append(sub_array)
                 i+=1
             }
+            Table_KEY.append(sub_array)
             i+=1
         }
         return Table_KEY
@@ -228,7 +229,7 @@ class Decrypt: UIViewController, UITextFieldDelegate
                 i += 1
             }
         }
-        let newAlphabet: [String] = getting_ABC(text)
+        let newAlphabet = getting_ABC()
         for i in 0 ..< newAlphabet.count
         {
             print("\(Letters[i]) = \(Int(newAlphabet.firstIndex(of: Letters[i])!))")
@@ -252,7 +253,116 @@ class Decrypt: UIViewController, UITextFieldDelegate
     func Playfair_decode (_ text: inout String, _ newText: inout String)
     {
         // MARK: TO DO
-        var Table_KEY = getting_Table_KEY()
+        let Table_KEY = getting_Table_KEY()
+        var i = 0
+        repeat
+        {
+            let a = text[i], b = text[i+1]
+            var pos_a = [0,0], pos_b = [0,0]
+            for j in 0 ..< Table_KEY.count
+            {
+                for k in 0 ..< Table_KEY[j].count
+                {
+                    if a == Table_KEY[j][k]
+                    {
+                        pos_a[0] = j
+                        pos_a[1] = k
+                    }
+                    if b == Table_KEY[j][k]
+                    {
+                        pos_b[0] = j
+                        pos_b[1] = k
+                    }
+                }
+            }
+            if pos_a[0] == pos_b[0] && pos_a[1] == pos_b[1] // Однакові літери
+            {
+                if pos_a[1] == 0 // Якщо літери перші в рядку
+                {
+                    newText += Table_KEY[pos_a[0]][Table_KEY[0].count-1]
+                    newText += Table_KEY[pos_a[0]][Table_KEY[0].count-1]
+                }
+                else // Якщо літери не перщі в рядку
+                {
+                    newText += Table_KEY[pos_a[0]][pos_a[1]-1]
+                    newText += Table_KEY[pos_b[0]][pos_b[1]-1]
+                }
+            }
+            if pos_a[0] == pos_b[0] && pos_a[1] != pos_b[1] // Літери в одному рядку
+            {
+                if pos_a[1] == 0 // Якщо літерa "a" перша в рядку
+                {
+                    newText += Table_KEY[pos_a[0]][Table_KEY[0].count-1]
+                    newText += Table_KEY[pos_b[0]][pos_b[1]-1]
+                }
+                if pos_b[1] == 0 // Якщо літерa "b" перша в рядку
+                {
+                    newText += Table_KEY[pos_a[0]][pos_a[1]-1]
+                    newText += Table_KEY[pos_b[0]][Table_KEY[0].count-1]
+                }
+                if pos_a[1] != 0 && pos_b[1] != 0 // Літери не останні в рядку
+                {
+                    newText += Table_KEY[pos_a[0]][pos_a[1]-1]
+                    newText += Table_KEY[pos_b[0]][pos_b[1]-1]
+                }
+            }
+            if pos_a[0] != pos_b[0] && pos_a[1] == pos_b[1] // Літери в одному стовпці
+            {
+                if pos_a[0] == 0 // Якщо літерa "a" перша в стовпці
+                {
+                    newText += Table_KEY[Table_KEY.count-1][pos_a[1]]
+                    newText += Table_KEY[pos_b[0]-1][pos_b[1]]
+                }
+                if pos_b[0] == 0 // Якщо літерa "b" перша в стовпці
+                {
+                    newText += Table_KEY[pos_a[0]-1][pos_a[1]]
+                    newText += Table_KEY[Table_KEY.count-1][pos_b[1]]
+                }
+                if pos_a[0] != 0 && pos_b[0] != 0 //Літери не перші в стовпці
+                {
+                    newText += Table_KEY[pos_a[0]-1][pos_a[1]]
+                    newText += Table_KEY[pos_b[0]-1][pos_b[1]]
+                }
+            }
+            if pos_a[0] != pos_b[0] && pos_a[1] != pos_b[1] // Літери утворюють прямокутник
+            {
+                newText += Table_KEY[pos_a[0]][pos_b[1]]
+                newText += Table_KEY[pos_b[0]][pos_a[1]]
+            }
+            
+            if text.count%2 == 0 // Якщо текст має парну к-сть символів
+            {
+                i+=2
+            }
+            else
+            {
+                i+=2
+                if i == text.count-1 // Відловлення залишкової останньої літери
+                {
+                    for j in 0 ..< Table_KEY.count
+                    {
+                        for k in 0 ..< Table_KEY[j].count
+                        {
+                            if text[text.count-1] == Table_KEY[j][k]
+                            {
+                                pos_a[0] = j
+                                pos_a[1] = k
+                                if pos_a[1] == 0 // Якщо літера перша в рядку
+                                {
+                                    newText += Table_KEY[pos_a[0]][Table_KEY[0].count-1]
+                                }
+                                else
+                                {
+                                    newText += Table_KEY[pos_a[0]][pos_a[1]-1]
+                                }
+                            }
+                        }
+                    }
+                    i+=1
+                }
+            }
+        }
+        while i < text.count
     }
     
     // MARK: Розшифрування з файлу
