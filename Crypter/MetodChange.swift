@@ -10,18 +10,19 @@ import AVFoundation
 import AudioToolbox
 
 func MixLetters() {
-    Letters.shuffle()
+    var leters = Letters
+    leters.shuffle()
     
     let fileName = "Mixed_letters"
     let docDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
     let fileURL = docDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
     
-    for i in 0 ..< Letters.count
+    for i in 0 ..< leters.count
     {
         if let fileUpdater = try? FileHandle(forUpdating: fileURL)
         {
             fileUpdater.seekToEndOfFile()
-            fileUpdater.write(Letters[i].data(using: .utf8)!)
+            fileUpdater.write(leters[i].data(using: .utf8)!)
             fileUpdater.closeFile()
         }
     }
@@ -118,19 +119,20 @@ func createSHUFR()
 func Table_KEY()
 {
     // MARK: TO DO
-    Letters.shuffle()
+    var leters = Letters
+    leters.shuffle()
     
     let fileName = "Table_KEY"
     let docDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
     let fileURL = docDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
     let fileUpdater = try? FileHandle(forUpdating: fileURL)
     var j = 0
-    for i in 0 ..< Letters.count
+    for i in 0 ..< leters.count
     {
         if (fileUpdater != nil)
         {
             fileUpdater?.seekToEndOfFile()
-            fileUpdater?.write(Letters[i].data(using: .utf8)!)
+            fileUpdater?.write(leters[i].data(using: .utf8)!)
         }
         j+=1
         if j == 7
@@ -140,6 +142,8 @@ func Table_KEY()
             j = 0
         }
     }
+    fileUpdater?.seekToEndOfFile()
+    fileUpdater?.write("?".data(using: .utf8)!)
 }
 
 class MetodChange: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource

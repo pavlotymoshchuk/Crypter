@@ -46,6 +46,37 @@ class Decrypt: UIViewController, UITextFieldDelegate
         return newAlphabet
     }
     
+    func getting_Table_KEY() -> [[String]] {
+       
+        let fileName = "Table_KEY"
+        let docDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        let fileURL = docDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
+        var readTable_KEY = ""
+        var Table_KEY = [[String]]()
+        do
+        {
+            readTable_KEY = try String(contentsOf: fileURL)
+        }
+        catch
+        {
+            print("ERROR")
+        }
+        
+        var i = 0
+        for _ in 0 ..< 5
+        {
+            for _ in 0 ..< 7
+            {
+                var sub_array = [String]()
+                sub_array.append(readTable_KEY[i])
+                Table_KEY.append(sub_array)
+                i+=1
+            }
+            i+=1
+        }
+        return Table_KEY
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -221,6 +252,7 @@ class Decrypt: UIViewController, UITextFieldDelegate
     func Playfair_decode (_ text: inout String, _ newText: inout String)
     {
         // MARK: TO DO
+        var Table_KEY = getting_Table_KEY()
     }
     
     // MARK: Розшифрування з файлу
@@ -323,3 +355,4 @@ class Decrypt: UIViewController, UITextFieldDelegate
     }
     
 }
+
