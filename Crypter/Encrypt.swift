@@ -270,23 +270,15 @@ class Encrypt: UIViewController, UITextFieldDelegate
                 i += 1
             }
         }
-        print(text)
-        print(keyPhrase)
-        let newAlphabet: [String] = getting_ABC()
+        let newAlphabet = getting_ABC()
         for i in 0 ..< newAlphabet.count
         {
             print("\(Letters[i]) = \(Int(newAlphabet.firstIndex(of: Letters[i])!))")
         }
         for k in 0 ..< text.count
         {
-            if Int(newAlphabet.firstIndex(of: text[k])!)+Int(newAlphabet.firstIndex(of: keyPhrase[k])!) > 33
-            {
-                newText += newAlphabet[(Int(newAlphabet.firstIndex(of: text[k])!)+Int(newAlphabet.firstIndex(of: keyPhrase[k])!))%newAlphabet.count]
-            }
-            else
-            {
-                newText += newAlphabet[(Int(newAlphabet.firstIndex(of: text[k])!)+Int(newAlphabet.firstIndex(of: keyPhrase[k])!))]
-            }
+            let pos = (Int(newAlphabet.firstIndex(of: text[k])!)+Int(newAlphabet.firstIndex(of: keyPhrase[k])!))%newAlphabet.count
+            newText += newAlphabet[pos]
         }
     }
     
@@ -318,52 +310,18 @@ class Encrypt: UIViewController, UITextFieldDelegate
             }
             if pos_a[0] == pos_b[0] && pos_a[1] == pos_b[1] // Однакові літери
             {
-                if pos_a[1] == Table_KEY[0].count-1 // Якщо літери останні в рядку
-                {
-                    newText += Table_KEY[pos_a[0]][0]
-                    newText += Table_KEY[pos_a[0]][0]
-                }
-                else // Якщо літери не останні в рядку
-                {
-                    newText += Table_KEY[pos_a[0]][pos_a[1]+1]
-                    newText += Table_KEY[pos_b[0]][pos_b[1]+1]
-                }
+                newText += Table_KEY[pos_a[0]][(pos_a[1]+1)%Table_KEY[0].count]
+                newText += Table_KEY[pos_b[0]][(pos_a[1]+1)%Table_KEY[0].count]
             }
             if pos_a[0] == pos_b[0] && pos_a[1] != pos_b[1] // Літери в одному рядку
             {
-                if pos_a[1] == Table_KEY[0].count-1 // Якщо літерa "a" остання в рядку
-                {
-                    newText += Table_KEY[pos_a[0]][0]
-                    newText += Table_KEY[pos_b[0]][pos_b[1]+1]
-                }
-                if pos_b[1] == Table_KEY[0].count-1 // Якщо літерa "b" остання в рядку
-                {
-                    newText += Table_KEY[pos_a[0]][pos_a[1]+1]
-                    newText += Table_KEY[pos_b[0]][0]
-                }
-                if pos_a[1] != Table_KEY[0].count-1 && pos_b[1] != Table_KEY[0].count-1 // Літери не останні в рядку
-                {
-                    newText += Table_KEY[pos_a[0]][pos_a[1]+1]
-                    newText += Table_KEY[pos_b[0]][pos_b[1]+1]
-                }
+                newText += Table_KEY[pos_a[0]][(pos_a[1]+1)%Table_KEY[0].count]
+                newText += Table_KEY[pos_b[0]][(pos_b[1]+1)%Table_KEY[0].count]
             }
             if pos_a[0] != pos_b[0] && pos_a[1] == pos_b[1] // Літери в одному стовпці
             {
-                if pos_a[0] == Table_KEY.count-1 // Якщо літерa "a" остання в стовпці
-                {
-                    newText += Table_KEY[0][pos_a[1]]
-                    newText += Table_KEY[pos_b[0]+1][pos_b[1]]
-                }
-                if pos_b[0] == Table_KEY.count-1 // Якщо літерa "b" остання в стовпці
-                {
-                    newText += Table_KEY[pos_a[0]+1][pos_a[1]]
-                    newText += Table_KEY[0][pos_b[1]]
-                }
-                if pos_a[0] != Table_KEY.count-1 && pos_b[0] != Table_KEY.count-1 //Літери не останні в стовпці
-                {
-                    newText += Table_KEY[pos_a[0]+1][pos_a[1]]
-                    newText += Table_KEY[pos_b[0]+1][pos_b[1]]
-                }
+                    newText += Table_KEY[(pos_a[0]+1)%Table_KEY.count][pos_a[1]]
+                    newText += Table_KEY[(pos_b[0]+1)%Table_KEY.count][pos_b[1]]
             }
             if pos_a[0] != pos_b[0] && pos_a[1] != pos_b[1] // Літери утворюють прямокутник
             {
@@ -388,14 +346,7 @@ class Encrypt: UIViewController, UITextFieldDelegate
                             {
                                 pos_a[0] = j
                                 pos_a[1] = k
-                                if pos_a[1] == Table_KEY[0].count-1 // Якщо літера остання в рядку
-                                {
-                                    newText += Table_KEY[pos_a[0]][0]
-                                }
-                                else
-                                {
-                                    newText += Table_KEY[pos_a[0]][pos_a[1]+1]
-                                }
+                                newText += Table_KEY[pos_a[0]][(pos_a[1]+1)%Table_KEY[0].count]
                             }
                         }
                     }
@@ -439,11 +390,13 @@ class Encrypt: UIViewController, UITextFieldDelegate
         {
             for i in 0 ..< homophonic_el.count
             {
-                print("Кодові значення для літери '\(homophonic_el[i].letter)': ")
+                var code_values = ""
+                print("Кодові значення для символа '\(homophonic_el[i].letter)': ")
                 for j in 0 ..< homophonic_el[i].code.count
                 {
-                    print("\(homophonic_el[i].code[j])")
+                    code_values.append("\(homophonic_el[i].code[j]) ")
                 }
+                print(code_values)
             }
             Homophonic_code(&readString, &newText)
             for i in 0 ..< homophonic_el.count

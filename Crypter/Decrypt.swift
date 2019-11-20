@@ -233,15 +233,8 @@ class Decrypt: UIViewController, UITextFieldDelegate
         }
         for k in 0 ..< text.count
         {
-            let delta = Int(newAlphabet.firstIndex(of: text[k])!)-Int(newAlphabet.firstIndex(of: keyPhrase[k])!)
-            if delta < 0
-            {
-                newText += newAlphabet[newAlphabet.count+delta]
-            }
-            else
-            {
-                newText += newAlphabet[(Int(newAlphabet.firstIndex(of: text[k])!)-Int(newAlphabet.firstIndex(of: keyPhrase[k])!))]
-            }
+            let delta = Int(newAlphabet.firstIndex(of: text[k])!)-Int(newAlphabet.firstIndex(of: keyPhrase[k])!)+newAlphabet.count
+            newText += newAlphabet[delta%newAlphabet.count]
         }
     }
     
@@ -273,52 +266,18 @@ class Decrypt: UIViewController, UITextFieldDelegate
             }
             if pos_a[0] == pos_b[0] && pos_a[1] == pos_b[1] // Однакові літери
             {
-                if pos_a[1] == 0 // Якщо літери перші в рядку
-                {
-                    newText += Table_KEY[pos_a[0]][Table_KEY[0].count-1]
-                    newText += Table_KEY[pos_a[0]][Table_KEY[0].count-1]
-                }
-                else // Якщо літери не перщі в рядку
-                {
-                    newText += Table_KEY[pos_a[0]][pos_a[1]-1]
-                    newText += Table_KEY[pos_b[0]][pos_b[1]-1]
-                }
+                newText += Table_KEY[pos_a[0]][(pos_a[1]+Table_KEY[0].count-1)%Table_KEY[0].count]
+                newText += Table_KEY[pos_b[0]][(pos_b[1]+Table_KEY[0].count-1)%Table_KEY[0].count]
             }
             if pos_a[0] == pos_b[0] && pos_a[1] != pos_b[1] // Літери в одному рядку
             {
-                if pos_a[1] == 0 // Якщо літерa "a" перша в рядку
-                {
-                    newText += Table_KEY[pos_a[0]][Table_KEY[0].count-1]
-                    newText += Table_KEY[pos_b[0]][pos_b[1]-1]
-                }
-                if pos_b[1] == 0 // Якщо літерa "b" перша в рядку
-                {
-                    newText += Table_KEY[pos_a[0]][pos_a[1]-1]
-                    newText += Table_KEY[pos_b[0]][Table_KEY[0].count-1]
-                }
-                if pos_a[1] != 0 && pos_b[1] != 0 // Літери не останні в рядку
-                {
-                    newText += Table_KEY[pos_a[0]][pos_a[1]-1]
-                    newText += Table_KEY[pos_b[0]][pos_b[1]-1]
-                }
+                newText += Table_KEY[pos_a[0]][(pos_a[1]+Table_KEY[0].count-1)%Table_KEY[0].count]
+                newText += Table_KEY[pos_b[0]][(pos_b[1]+Table_KEY[0].count-1)%Table_KEY[0].count]
             }
             if pos_a[0] != pos_b[0] && pos_a[1] == pos_b[1] // Літери в одному стовпці
             {
-                if pos_a[0] == 0 // Якщо літерa "a" перша в стовпці
-                {
-                    newText += Table_KEY[Table_KEY.count-1][pos_a[1]]
-                    newText += Table_KEY[pos_b[0]-1][pos_b[1]]
-                }
-                if pos_b[0] == 0 // Якщо літерa "b" перша в стовпці
-                {
-                    newText += Table_KEY[pos_a[0]-1][pos_a[1]]
-                    newText += Table_KEY[Table_KEY.count-1][pos_b[1]]
-                }
-                if pos_a[0] != 0 && pos_b[0] != 0 //Літери не перші в стовпці
-                {
-                    newText += Table_KEY[pos_a[0]-1][pos_a[1]]
-                    newText += Table_KEY[pos_b[0]-1][pos_b[1]]
-                }
+                newText += Table_KEY[(pos_a[0]+Table_KEY.count-1)%Table_KEY.count][pos_a[1]]
+                newText += Table_KEY[(pos_b[0]+Table_KEY.count-1)%Table_KEY.count][pos_b[1]]
             }
             if pos_a[0] != pos_b[0] && pos_a[1] != pos_b[1] // Літери утворюють прямокутник
             {
@@ -343,14 +302,7 @@ class Decrypt: UIViewController, UITextFieldDelegate
                             {
                                 pos_a[0] = j
                                 pos_a[1] = k
-                                if pos_a[1] == 0 // Якщо літера перша в рядку
-                                {
-                                    newText += Table_KEY[pos_a[0]][Table_KEY[0].count-1]
-                                }
-                                else
-                                {
-                                    newText += Table_KEY[pos_a[0]][pos_a[1]-1]
-                                }
+                                newText += Table_KEY[pos_a[0]][(pos_a[1]+Table_KEY[0].count-1)%Table_KEY[0].count]
                             }
                         }
                     }

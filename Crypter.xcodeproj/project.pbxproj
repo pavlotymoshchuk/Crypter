@@ -20,6 +20,7 @@
 		C7A8BD44210C8A0F0028E4BE /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A8BD43210C8A0F0028E4BE /* ShareViewController.swift */; };
 		C7A8BD47210C8A0F0028E4BE /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A8BD45210C8A0F0028E4BE /* MainInterface.storyboard */; };
 		C7A8BD4B210C8A0F0028E4BE /* shareToCripter.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C7A8BD41210C8A0F0028E4BE /* shareToCripter.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C7ABE29D238564B300E2391B /* TableABCChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ABE29C238564B300E2391B /* TableABCChange.swift */; };
 		C7ADB3A4231FC54C0048FD3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7ADB3A3231FC54C0048FD3A /* Main.storyboard */; };
 		C7F217592361C8F500BAEC5F /* KeyWordChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F217582361C8F500BAEC5F /* KeyWordChange.swift */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		C7A8BD46210C8A0F0028E4BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		C7A8BD48210C8A0F0028E4BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7A8BD50210C8A270028E4BE /* shareToCripter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = shareToCripter.entitlements; sourceTree = "<group>"; };
+		C7ABE29C238564B300E2391B /* TableABCChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableABCChange.swift; sourceTree = "<group>"; };
 		C7ADB3A3231FC54C0048FD3A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C7F217582361C8F500BAEC5F /* KeyWordChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyWordChange.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +141,7 @@
 				C7A46CD4231EEABA00EEC538 /* MetodChange.swift */,
 				C7F217582361C8F500BAEC5F /* KeyWordChange.swift */,
 				C7222FE22342728F009D23E3 /* KeyChange.swift */,
+				C7ABE29C238564B300E2391B /* TableABCChange.swift */,
 				C7ADB3A3231FC54C0048FD3A /* Main.storyboard */,
 				C7137C5C210222C400F9D57C /* Info.plist */,
 				C7137C54210222C200F9D57C /* Crypter.xcdatamodeld */,
@@ -325,6 +328,7 @@
 				C7137C6521022C6600F9D57C /* Decrypt.swift in Sources */,
 				C7F217592361C8F500BAEC5F /* KeyWordChange.swift in Sources */,
 				C7137C6321022C5300F9D57C /* Encrypt.swift in Sources */,
+				C7ABE29D238564B300E2391B /* TableABCChange.swift in Sources */,
 				C7A46CD5231EEABA00EEC538 /* MetodChange.swift in Sources */,
 				C7222FE32342728F009D23E3 /* KeyChange.swift in Sources */,
 				C7137C4E210222C200F9D57C /* AppDelegate.swift in Sources */,
